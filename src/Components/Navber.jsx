@@ -1,8 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router'; 
+import logo from "../Logo.png"
 
 const Navber = () => {
     return (
-    <div className="navbar bg-base-100 shadow-sm container mx-auto">
+    <div className="navbar bg-base-100 shadow-sm container mx-auto p-6">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -11,36 +13,36 @@ const Navber = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Home</a></li>
+        <li>  <NavLink to={'/'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Home</NavLink>  </li>
         
-        <li>  <a>ALL Crops</a>   </li> 
+        <li> <NavLink to={'/All-Crops'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>ALL Crops</NavLink>   </li> 
           
        
-        <li><a>Profile</a></li> 
+        <li>   <NavLink to={'/Profile'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Profile</NavLink>    </li> 
 
-         <li><a>Add Crops</a></li> 
+         <li> <NavLink to={'/Add-Crops'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Add Crops </NavLink>  </li> 
 
-          <li><a>My Post</a></li> 
+          <li> <NavLink to={"/My-Post"} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}> My Post </NavLink> </li> 
 
-           <li><a>My Interest</a></li>
+           <li> <NavLink to={'/My-interest'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>My Interest</NavLink>  </li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl"> <img src={logo} alt="" className='h-[90px] rounded-2xl p-1' /> </a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li> 
+      <li><NavLink to={'/'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Home</NavLink></li> 
 
-      <li><a>ALL Crops</a></li>
+      <li><NavLink to={'/All-Crops'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>ALL Crops</NavLink></li>
     
       
-      <li><a>Profile</a></li> 
+      <li> <NavLink to={'/Profile'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Profile</NavLink></li> 
 
-      <li><a>Add Crops</a></li> 
+      <li><NavLink to={'/Add-Crops'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Add Crops </NavLink> </li> 
 
-      <li><a>My Post</a></li> 
+      <li><NavLink to={"/My-Post"} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}> My Post </NavLink></li> 
        
-       <li><a>My Interest</a></li>
+       <li><NavLink to={'/My-interest'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>My Interest</NavLink> </li>
     </ul>
   </div>
   <div className="navbar-end">
