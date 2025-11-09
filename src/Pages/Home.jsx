@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'; 
+import { FaArrowRight } from "react-icons/fa6";
 
 import kata from '../assets/kata.jpg'; 
 import kodal from '../assets/kodal.jpg';
@@ -10,8 +11,15 @@ import sorisa from '../assets/sorisa.jpg';
 
 
 import 'swiper/css'; 
+import { Navigate, NavLink, useLoaderData, useNavigate } from 'react-router';
 
-const Home = () => {
+const Home = () => { 
+
+ const Cards=useLoaderData()
+ console.log(Cards) 
+
+ const navigate=useNavigate()
+
     return (
         <div className='container mx-auto p-5 mb-20 bg-gray-100 '>
             <h1 className='text-2xl font-light'>Farming for <span className='text-3xl font-bold text-gray-600 '>Today </span> <br /><div className=""> </div>and the <span className='text-3xl font-bold text-gray-600 '>Future</span> </h1>  
@@ -95,9 +103,51 @@ const Home = () => {
    
   </SwiperSlide>
 
-</Swiper>
+</Swiper>   
+
+<h1 className='text-gray-400 text-center text-5xl mt-8 font-bold'>Explore Crops</h1> 
+   
+
+ <div className="mt-9 grid grid-cols-1 md:grid-cols-3 gap-3 m-2 ">
+
+   {
+    Cards.slice(0,6).map((card)=>( 
+
+     <div className="card  w-full shadow-sm bg-gray-200 ">
+  <figure>
+    <img
+      src={card.image} className='max-h-[180px] max-w-[280px] m-2 rounded-4xl '
+      alt="" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">
+      {card.name}
+      <div className="badge badge-secondary">{card.type}</div>
+    </h2>
+    <p>{card.description}</p>
+    <div className="card-actions justify-end">
+      <div className="badge badge-outline text-green-800 font-bold bg-green-100">{card.location}</div>
+      <div className="badge badge-outline bg-green-100 text-green-700 font-bold">{card.pricePerUnit} tk</div>
+    </div>
+  </div>
+</div>
 
 
+
+
+
+    ))
+ }
+
+ 
+
+ </div>
+
+
+
+ 
+
+  <button className='btn mt-5 flex mx-auto p-6 bg-pink-400 rounded-md' onClick={()=>navigate('/All-Crops')}>View ALL  <FaArrowRight />   </button>
 
 
 
