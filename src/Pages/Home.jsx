@@ -2,7 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'; 
 import { FaArrowRight } from "react-icons/fa6";
-
+// import { GoogleFontLoader } from 'react-google-fonts';
 import kata from '../assets/kata.jpg'; 
 import kodal from '../assets/kodal.jpg';
 import Ropon from '../assets/Ropon.jpg';
@@ -16,12 +16,28 @@ import { Navigate, NavLink, useLoaderData, useNavigate } from 'react-router';
 const Home = () => { 
 
  const Cards=useLoaderData()
- console.log(Cards) 
+ 
 
  const navigate=useNavigate()
 
     return (
-        <div className='container mx-auto p-5 mb-20 bg-gray-100 '>
+        <div className='container mx-auto p-5 mb-20 bg-gray-100 '> 
+
+
+
+{/* <GoogleFontLoader
+        fonts={[
+          
+          {
+            font: 'Roboto', 
+            weights: [300, 400, 700],
+          },
+        ]}
+        subsets={['latin', 'bengali']} 
+      /> */}
+
+
+
             <h1 className='text-2xl font-light'>Farming for <span className='text-3xl font-bold text-gray-600 '>Today </span> <br /><div className=""> </div>and the <span className='text-3xl font-bold text-gray-600 '>Future</span> </h1>  
 
  <Swiper
@@ -149,9 +165,167 @@ const Home = () => {
 
   <button className='btn mt-5 flex mx-auto p-6 bg-pink-400 rounded-md' onClick={()=>navigate('/All-Crops')}>View ALL  <FaArrowRight />   </button>
 
+                  <h1 className='text-center mt-10 text-4xl font-bold'>Latest Newes & Insights </h1> 
 
 
-        </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-3 mt-10'> 
+
+
+
+ <div className="card card-side bg-base-80 shadow-sm">
+  <figure>
+    <img
+      src="https://i.ibb.co.com/XkMPYPj7/poramosso.jpg" className='p-1 rounded-xl'
+      alt="Movie" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">সরকারি পরামর্শ</h2>
+    <p>সরকারি আধুনিক কৃষি পরামর্শে রহিম সাহেবের সরিষার বাম্পার ফলন</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">আরো পড়ুন
+
+      </button>
+    </div>
+  </div>
+</div>  
+
+
+
+
+<div className="card card-side bg-base-100 shadow-sm">
+  <figure>
+    <img
+      src="https://i.ibb.co.com/PZ9qgpZN/tructor.jpg" className='rounded-xl p-1'
+      alt="Movie" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">আধুনিক যন্ত্র</h2>
+    <p>ট্রাক্টর দিয়ে হাল চাষ করে পরাগ সাহেব আগের চেয়ে অনেক দ্রুত চাষের জমি প্রস্তুত করতে পারছেন</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary"> আরো পড়ুন
+         </button>
+    </div>
+  </div>
+</div>  
+
+
+
+
+
+<div className="card card-side bg-base-100 shadow-sm">
+  <figure>
+    <img
+      src="https://i.ibb.co.com/dsCrr4rY/dhan.jpg"className='max-w-[550px] p-1 rounded-xl '
+      alt="Movie" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">সঠিক সার প্রয়োগ</h2>
+    <p>সরকারি পরামর্শে কীটনাশক প্রয়োগ করে এবার
+        ফুয়াদ সাহেব পোকা-মাকড়ের হাত থেকে ফসল রক্ষা করেছেন </p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">আরো পড়ুন </button>
+    </div>
+  </div>
+</div>
+
+
+ </div>    
+
+
+     <h1 className='text-center text-5xl font-bold mt-10'>Our Star Farmers </h1>
+
+ 
+
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+
+ <div className="card bg-base-100 max-w-80 shadow-sm">
+  <figure className="px-10 pt-10">
+    <img
+      src="https://i.ibb.co.com/Hfw9NVNv/photo-1737279258288-d13fefb528a3-ixlib-rb-4-1.jpg"
+      alt=""
+      className="rounded-xl" />
+  </figure>
+  <div className="card-body items-center text-center">
+    <h2 className="card-title">রাশেদুল ইসলাম</h2>
+    <p>২০২৫ সালের সেরা সবজি উৎপাদক</p>
+    <div className="card-actions">
+      <button className="btn btn-primary">জৈব সবজি চাষ"</button>
+    </div>
+  </div>
+</div> 
+
+
+
+<div className="card bg-base-100 max-w-80  shadow-sm">
+  <figure className="px-10 pt-10">
+    <img
+      src="https://i.ibb.co.com/6JFsR53G/photo-1744742427348-dfa786ffad9c-ixlib-rb-4-1.jpg"
+      alt="Shoes"
+      className="rounded-xl" />
+  </figure>
+  <div className="card-body items-center text-center">
+    <h2 className="card-title">মৌসুমি আক্তার"</h2>
+    <p>১০ একর জমিতে নতুন প্রযুক্তির ব্যবহার</p>
+    <div className="card-actions">
+      <button className="btn btn-primary">ধান ও ফল চাষ</button>
+    </div>
+  </div>
+</div> 
+
+
+
+<div className="card bg-base-100 max-w-80  shadow-sm">
+  <figure className="px-10 pt-10">
+    <img
+      src="https://i.ibb.co.com/S7G3F6Tw/photo-1630390077969-abc328259b00-ixlib-rb-4-1.jpg"
+      alt="Shoes"
+      className="rounded-xl" />
+  </figure>
+  <div className="card-body items-center text-center">
+    <h2 className="card-title">রবিউল করিম</h2>
+    <p>স্থানীয় বাজারে ২০০+ ক্রেতা যুক্ত"</p>
+    <div className="card-actions">
+      <button className="btn btn-primary">আম ও সবজি চাষ</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+ </div>  
+
+ <div className="min-h-screen flex items-center justify-center bg-gray-50">
+  <div className="w-full max-w-2xl bg-blue-300 p-6 text-center rounded-lg shadow">
+    <h1 className="text-2xl font-bold mb-4">Pro Farmer Insights</h1>
+    <p className="mb-2">👉 কম পানি ব্যবহার করে বেশি ফলন পাওয়ার সবচেয়ে কার্যকর উপায় হলো ড্রিপ ইরিগেশন।</p>
+    <p className="mb-2">👉 মাটির পিএইচ, আর্দ্রতা ও পুষ্টিগুণ নির্ণয় করো।</p>
+    <p className="mb-2">👉 স্থানীয় আবহাওয়ার সঙ্গে মানানসই ফসল বেছে নাও।</p>
+    <p className="mb-2">👉 রাসায়নিক সার কমিয়ে গোবর বা কম্পোস্ট সার ব্যবহার করো।</p>
+    <p className="mb-2">👉 নিয়মিত আবহাওয়া অ্যাপ বা কৃষি তথ্য সাইট চেক করো।</p>
+    <p className="mb-0">👉 বাজারের বর্তমান দামের তথ্য জানো। সঠিক সময় বিক্রি করলে মুনাফা বাড়ে।</p>
+  </div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+        </div> 
     );
 };
 
