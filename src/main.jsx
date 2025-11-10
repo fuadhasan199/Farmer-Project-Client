@@ -10,6 +10,7 @@ import Profile from './Pages/Profile.jsx'
 import ADD_Crops from './Pages/ADD_Crops.jsx'
 import My_post from './Pages/My_post.jsx'
 import My_Intereset from './Pages/My_Intereset.jsx'
+import Details from './Pages/Details.jsx'
 
 const router=createBrowserRouter([
    {
@@ -46,7 +47,16 @@ const router=createBrowserRouter([
         {
           path:'/My-interest',
           element:<My_Intereset></My_Intereset>
-        }
+        },
+        {
+
+      
+        path:'/Details/:id', 
+            
+        element:<Details></Details>,
+        loader:({params})=>fetch(`http://localhost:5000/farmers/${params.id}`)
+
+          }
 
 
      ])

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import { CiSearch } from "react-icons/ci";
 
 const All_Crops = () => { 
@@ -39,9 +39,12 @@ const All_Crops = () => {
       <div className="badge badge-outline bg-green-100 text-green-700 font-bold">{card.pricePerUnit} tk</div> 
 
      
-    </div>
-           <button className='btn bg-blue-600 text-white rounded-md flex mx-auto mt-2'>View Details</button>
-   </div>
+    </div> 
+           <Link to={`/Details/${card._id}`}> 
+        
+           <button className='btn bg-blue-600 text-white rounded-md flex mx-auto mt-2'>View Details</button> 
+              </Link>
+   </div> 
 </div>
 
 

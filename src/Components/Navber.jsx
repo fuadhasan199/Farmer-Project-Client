@@ -16,6 +16,8 @@ const Navber = () => {
         <li>  <NavLink to={'/'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Home</NavLink>  </li>
         
         <li> <NavLink to={'/All-Crops'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>ALL Crops</NavLink>   </li> 
+
+       
           
        
         <li>   <NavLink to={'/Profile'} className={({isActive})=>(isActive ? 'text-red-500 font-bold':'')}>Profile</NavLink>    </li> 
