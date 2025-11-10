@@ -25,19 +25,6 @@ const Home = () => {
 
 
 
-{/* <GoogleFontLoader
-        fonts={[
-          
-          {
-            font: 'Roboto', 
-            weights: [300, 400, 700],
-          },
-        ]}
-        subsets={['latin', 'bengali']} 
-      /> */}
-
-
-
             <h1 className='text-2xl font-light'>Farming for <span className='text-3xl font-bold text-gray-600 '>Today </span> <br /><div className=""> </div>and the <span className='text-3xl font-bold text-gray-600 '>Future</span> </h1>  
 
  <Swiper

@@ -26,7 +26,8 @@ const router=createBrowserRouter([
         } ,
         {
           path:'/All-Crops',
-          element:<All_Crops></All_Crops>
+          element:<All_Crops></All_Crops>,
+          loader:()=>fetch('http://localhost:5000/farmers')
         } ,
 
         {
