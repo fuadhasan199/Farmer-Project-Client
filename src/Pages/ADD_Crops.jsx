@@ -1,6 +1,36 @@
 import React from 'react';
 
-const ADD_Crops = () => {
+const ADD_Crops = () => { 
+
+  const handleSubmit=(e)=>{
+         e.preventDefault()
+      
+         const formData={
+            
+            name:e.target.name.value,
+            type:e.target.type.value,
+           pricePerUnit:e.target.pricePerUnit.value,
+            unit:e.target.unit.value,  
+            quantity:e.target.quantity.value,
+
+            description:e.target.description.value,
+            location:e.target.location.value, 
+
+             image:e.target.image.value
+             
+               } 
+
+               console.log(formData)
+     }
+
+       
+  
+
+
+
+
+
+
     return ( 
         <div className="container mx-auto mt-1 mb-20">  
          <div className="min-h-screen flex items-center justify-center bg-green-50">
@@ -9,19 +39,23 @@ const ADD_Crops = () => {
           Add New Crop
         </h2>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block font-medium mb-1">Crop Name</label>
             <input
-              type="text"
+              type="text" 
+              name="name"
               placeholder="Enter crop name"
               className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>
 
           <div>
-            <label className="block font-medium mb-1">Type</label>
-            <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+            <label className="block font-medium mb-1">Type</label> 
+            <select 
+              name="type"
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+            >
               <option value="">Select type</option>
               <option>Vegetable</option>
               <option>Fruit</option>
@@ -33,7 +67,8 @@ const ADD_Crops = () => {
             <div>
               <label className="block font-medium mb-1">Price per Unit</label>
               <input
-                type="number"
+                type="pricePerUnit"
+                name="pricePerUnit"
                 placeholder="e.g. 55"
                 className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
               />
@@ -41,8 +76,11 @@ const ADD_Crops = () => {
 
             <div>
               <label className="block font-medium mb-1">Unit</label>
-              <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
-                <option value="">Select unit</option>
+              <select 
+                name="unit"
+                className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2
+                 focus:ring-green-400">
+                <option value="">Select unit</option> 
                 <option>kg</option>
                 <option>ton</option>
                 <option>bag</option>
@@ -51,9 +89,10 @@ const ADD_Crops = () => {
           </div>
 
           <div>
-            <label className="block font-medium mb-1">Estimated Quantity</label>
+            <label className="block font-medium mb-1">Quantity</label>
             <input
               type="number"
+              name="quantity"
               placeholder="Enter quantity"
               className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
@@ -62,6 +101,7 @@ const ADD_Crops = () => {
           <div>
             <label className="block font-medium mb-1">Description</label>
             <textarea
+              name="description"
               placeholder="Short details about the crop"
               rows="3"
               className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -72,24 +112,24 @@ const ADD_Crops = () => {
             <label className="block font-medium mb-1">Location</label>
             <input
               type="text"
+              name="location"
               placeholder="e.g. Bogura"
               className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>
 
           <div>
-            <label className="block font-medium mb-1">Image URL</label>
+            <label className="block font-medium mb-1">Image URL</label> 
             <input
               type="text"
+              name="image"
               placeholder="Enter image link"
               className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-all duration-300 font-semibold"
-          >
+          <button type="submit" className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-all duration-300 font-semibold"  >
+        
             Add Crop
           </button>
         </form>
