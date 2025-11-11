@@ -11,6 +11,11 @@ import ADD_Crops from './Pages/ADD_Crops.jsx'
 import My_post from './Pages/My_post.jsx'
 import My_Intereset from './Pages/My_Intereset.jsx'
 import Details from './Pages/Details.jsx'
+import AuthProvider from './Pages/AuthProvider.jsx'
+import SignUp from './Sign/SignUp.jsx'
+import SignIn from './Sign/SignIn.jsx'
+import Private from './Private.jsx'
+
 
 const router=createBrowserRouter([
    {
@@ -38,24 +43,32 @@ const router=createBrowserRouter([
 
         {
           path:'/Add-Crops',
-          element:<ADD_Crops></ADD_Crops>
+          element: <Private> <ADD_Crops></ADD_Crops> </Private>  ,      
         } ,
         {
           path:"/My-Post",
-          element:<My_post></My_post>   
+          element: <Private> <My_post></My_post>   </Private>   
         } ,
         {
           path:'/My-interest',
-          element:<My_Intereset></My_Intereset>
+          element:<Private> <My_Intereset></My_Intereset></Private>       
         },
         {
 
       
         path:'/Details/:id', 
-            
-        element:<Details></Details>,
+       element:<Private><Details></Details> </Private>,
         loader:({params})=>fetch(`http://localhost:5000/farmers/${params.id}`)
 
+          } ,
+          { 
+            path:'/Sign-Up',
+            element:<SignUp></SignUp> 
+          } 
+          ,
+          {
+            path:'/Sign-In', 
+            element:<SignIn></SignIn>
           }
 
 
@@ -64,7 +77,10 @@ const router=createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+  <StrictMode> 
+    <AuthProvider> 
+ <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
+   
   </StrictMode>,
 )
