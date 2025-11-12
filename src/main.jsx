@@ -16,6 +16,7 @@ import SignUp from './Sign/SignUp.jsx'
 import SignIn from './Sign/SignIn.jsx'
 import Private from './Private.jsx'
 import CropProvider from './Pages/CropProvider.jsx'
+import Modal from './Pages/Modal.jsx'
 
 
 const router=createBrowserRouter([
@@ -70,7 +71,14 @@ const router=createBrowserRouter([
           {
             path:'/Sign-In', 
             element:<SignIn></SignIn>
-          }
+          }, 
+          {
+
+          path:'/Modal/:id',
+          element:<Modal></Modal>,
+      
+          loader:({params})=>fetch(`http://localhost:5000/farmers/${params.id}`)
+    },
 
 
      ])
