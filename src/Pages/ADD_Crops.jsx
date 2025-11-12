@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {  useContext, } from 'react';
+import  { CropContext } from './CropProvider';
+import { AuthContext } from './AuthContext';
 
 const ADD_Crops = () => { 
 
-  const handleSubmit=(e)=>{
+  const {myCrops,setMyCrops}=useContext(CropContext)
+  const {user}=useContext(AuthContext)
+
+  const handleSubmit=(e)=>{ 
+
+   
+  
+
+
          e.preventDefault()
       
          const formData={
@@ -16,11 +26,36 @@ const ADD_Crops = () => {
             description:e.target.description.value,
             location:e.target.location.value, 
 
-             image:e.target.image.value
+             image:e.target.image.value,
+             userEmail: user?.email,      
+              userName: user?.displayName  
              
                } 
 
-               console.log(formData)
+               fetch('http://localhost:5000/farmers',
+                {
+                    method:'POST',
+                    headers:{
+                        "content-type":"application/json"
+                    }, 
+                 body:JSON.stringify(formData)
+
+                } ) 
+                .then(res=>res.json())
+                .then(data=>{
+
+                   e.target.reset()
+                   setMyCrops([...myCrops,data])
+
+                }) 
+
+
+
+
+                .catch(error=>console.log(error))
+              
+            
+              
      }
 
        

@@ -15,6 +15,7 @@ import AuthProvider from './Pages/AuthProvider.jsx'
 import SignUp from './Sign/SignUp.jsx'
 import SignIn from './Sign/SignIn.jsx'
 import Private from './Private.jsx'
+import CropProvider from './Pages/CropProvider.jsx'
 
 
 const router=createBrowserRouter([
@@ -78,8 +79,11 @@ const router=createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode> 
-    <AuthProvider> 
- <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>  
+      <CropProvider>
+<RouterProvider router={router}></RouterProvider>
+      </CropProvider>
+ 
     </AuthProvider>
    
   </StrictMode>,
