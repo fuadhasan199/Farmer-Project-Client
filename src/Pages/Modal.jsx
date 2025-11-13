@@ -59,10 +59,10 @@ const Modal = ({ crop }) => {
         className="w-full border rounded-lg px-3 py-2"
       />
 
-      <button
-        type="submit"
-        className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-all duration-300 font-semibold"
-      >
+      <button  type="submit"  className="w-full bg-green-600 text-white py-2 rounded-lg
+       
+        hover:bg-green-700 transition-all duration-300 font-semibold" >
+     
         Save Changes
       </button>
     </form>
