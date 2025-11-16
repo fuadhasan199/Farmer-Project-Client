@@ -37,7 +37,7 @@ const Navber = () => {
             <li><NavLink to="/Sign-Up" className={({ isActive }) => isActive ? 'text-red-500 font-bold' : ''}>Register</NavLink></li>
         </>
     );
-    // __________________________________________________________________________________
+    
 
 
     return (
