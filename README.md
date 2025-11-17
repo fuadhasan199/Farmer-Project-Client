@@ -1,16 +1,29 @@
-# React + Vite
+# KrishiLink - Farmer’s Growth & Connection Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KrishiLink is a modern web application that connects people in the agricultural sector—farmers, traders, and consumers—in one digital space. Instead of a traditional buyer-seller model, it works as a social agro network where everyone can interact directly.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Post what you are growing or selling and manage your crops.
+- Browse other users’ crop posts and show interest in connecting or collaborating.
+- Receive, accept, or reject interest requests from other users.
+- User authentication with email/password and Google login.
+- Responsive design with a modern and intuitive UI for desktop and mobile.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React.js, Tailwind CSS
+- **Backend:** Node.js, Express.js, MongoDB
+- **Authentication:** Firebase Auth
+- **Hosting:** Netlify (client), Vercel (server)
 
-## Expanding the ESLint configuration
+## Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Live Link : https://krisikink.pages.dev/  
+
+## Notes
+
+- All CRUD operations for crops and interests[update soon] are fully functional.
+- Private routes ensure users only see and manage their own data.
+- All pages maintain a consistent layout with a header and footer.
+
