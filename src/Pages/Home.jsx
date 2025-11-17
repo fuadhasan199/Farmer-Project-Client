@@ -252,7 +252,7 @@ const Home = () => {
       className="rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title">মৌসুমি আক্তার"</h2>
+    <h2 className="card-title">মৌসুমি আক্তার</h2>
     <p>১০ একর জমিতে নতুন প্রযুক্তির ব্যবহার</p>
     <div className="card-actions">
       <button className="btn btn-primary">ধান ও ফল চাষ</button>
@@ -271,7 +271,7 @@ const Home = () => {
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">রবিউল করিম</h2>
-    <p>স্থানীয় বাজারে ২০০+ ক্রেতা যুক্ত"</p>
+    <p>স্থানীয় বাজারে ২০০+ ক্রেতা যুক্ত</p>
     <div className="card-actions">
       <button className="btn btn-primary">আম ও সবজি চাষ</button>
     </div>
