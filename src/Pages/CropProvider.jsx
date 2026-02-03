@@ -11,7 +11,7 @@ const [myCrops,setMyCrops]=useState([])
 
 useEffect(()=>{
  
- fetch('http://localhost:5000/farmers') 
+ fetch('https://farmers-api-omega.vercel.app/farmers') 
  .then(res=>res.json())
  .then(data=>setMyCrops(data))
 

@@ -11,7 +11,7 @@ const Modal = ({ crop }) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/farmers/${crop._id}`, {
+    fetch(`https://farmers-api-omega.vercel.app/farmers/${crop._id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(updatedCrop),

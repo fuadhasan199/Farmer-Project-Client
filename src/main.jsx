@@ -29,13 +29,13 @@ const router=createBrowserRouter([
         {
           index:"true",
           element:<Home></Home> ,
-          loader:()=>fetch('http://localhost:5000/farmers')
+          loader:()=>fetch('https://farmers-api-omega.vercel.app/farmers')
           
         } ,
         {
           path:'/All-Crops',
           element:<All_Crops></All_Crops>,
-          loader:()=>fetch('http://localhost:5000/farmers')
+          loader:()=>fetch('https://farmers-api-omega.vercel.app/farmers')
         } ,
 
         {
@@ -60,7 +60,7 @@ const router=createBrowserRouter([
       
         path:'/Details/:id', 
        element:<Private><Details></Details> </Private>,
-        loader:({params})=>fetch(`http://localhost:5000/farmers/${params.id}`)
+        loader:({params})=>fetch(`https://farmers-api-omega.vercel.app/farmers/${params.id}`)
 
           } ,
           { 
@@ -77,7 +77,7 @@ const router=createBrowserRouter([
           path:'/Modal/:id',
           element:<Modal></Modal>,
       
-          loader:({params})=>fetch(`http://localhost:5000/farmers/${params.id}`)
+          loader:({params})=>fetch(`https://farmers-api-omega.vercel.app/farmers/${params.id}`)
     },
 
 

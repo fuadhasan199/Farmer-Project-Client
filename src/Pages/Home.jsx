@@ -16,6 +16,7 @@ import { Navigate, NavLink, useLoaderData, useNavigate } from 'react-router';
 const Home = () => { 
 
  const Cards=useLoaderData()
+ console.log(Cards)
  
 
  const navigate=useNavigate()
@@ -217,7 +218,9 @@ const Home = () => {
 </div>
 
 
- </div>    
+ </div>     
+
+ 
 
 
      <h1 className='text-center text-5xl font-bold mt-10'>Our Star Farmers </h1>
@@ -279,7 +282,75 @@ const Home = () => {
 </div>
 
 
+ {/* How it Works Section */} 
 
+  <div className="  mt-10 "> 
+  <h1 className="text-3xl font-bold text-center "> এটি  কিভাবে কাজ করে</h1> 
+    <div className="text-center mt-1 ">  
+        <h3 className="text-xl font-semibold mt-5">একাউন্ট তৈরি</h3> 
+        <div className="mt-5 font-light"> 
+          <ul>
+            <li># সহজ রেজিস্ট্রেশন</li>
+            <li># ইমেইল বা গুগল লগইন</li>
+            <li># নিরাপদ ইউজার প্রোফাইল</li>
+          </ul>
+        </div>
+    </div>  
+
+
+
+         <div className="text-center mt-1 ">  
+        <h3 className="text-xl font-semibold mt-5">ফসল লিস্টিং</h3> 
+        <div className="mt-5 font-light "> 
+          <ul>
+            <li># ফসলের ছবি আপলোড</li>
+            <li># দাম ও পরিমাণ উল্লেখ</li>
+            <li># লোকেশন যোগ</li>
+          </ul>
+        </div>
+    </div> 
+
+
+
+             <div className="text-center mt-1 ">  
+        <h3 className="text-xl font-semibold mt-5">আগ্রহ পাঠান</h3> 
+        <div className="mt-5 font-light "> 
+          <ul>
+            <li># পছন্দের ফসলে ইন্টারেস্ট</li>
+            <li># পরিমাণ উল্লেখ</li>
+            <li># বার্তা পাঠানো সুবিধা</li>
+          </ul>
+        </div>
+    </div>  
+
+
+                 <div className="text-center mt-1 ">  
+        <h3 className="text-xl font-semibold mt-5">সরাসরি লেনদেন</h3> 
+        <div className="mt-5 font-light "> 
+          <ul>
+            <li># পবিক্রেতা একসেপ্ট করে</li>
+            <li># সরাসরি যোগাযোগ</li>
+            <li># দালাল ছাড়া কেনাবেচা</li>
+          </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+   
+   
+   
+   <h3 className="text-xl font-semibold mt-2"></h3>
+
+
+
+
+
+  </div>
+   
 
 
 

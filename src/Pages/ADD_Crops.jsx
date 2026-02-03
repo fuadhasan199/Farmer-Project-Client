@@ -32,7 +32,7 @@ const ADD_Crops = () => {
              
                } 
 
-               fetch('http://localhost:5000/farmers',
+               fetch('https://farmers-api-omega.vercel.app/farmers',
                 {
                     method:'POST',
                     headers:{

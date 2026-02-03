@@ -17,7 +17,7 @@ const My_post = () => {
 
     const handleDelete = async (cropId) => {
         try {
-            const res = await fetch(`http://localhost:5000/farmers/${cropId}`, {
+            const res = await fetch(`https://farmers-api-omega.vercel.app/farmers/${cropId}`, {
                 method: 'DELETE',
             });
             const data = await res.json();
