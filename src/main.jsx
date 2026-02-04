@@ -29,7 +29,7 @@ const router=createBrowserRouter([
         {
           index:"true",
           element:<Home></Home> ,
-          loader:()=>fetch('https://farmers-api-omega.vercel.app/farmers')
+          loader:()=>fetch('https://farmers-api-omega.vercel.app/farmers/home')
           
         } ,
         {

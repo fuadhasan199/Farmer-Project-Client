@@ -115,9 +115,9 @@ const Home = () => {
  <div className="mt-9 grid grid-cols-1 md:grid-cols-3 gap-3 m-2 ">
 
    {
-    Cards.slice(0,6).map((card)=>( 
+    Cards.slice(-6).map((card)=>( 
 
-     <div className="card  w-full shadow-sm bg-gray-200 ">
+     <div key={card._id} className="card  w-full shadow-sm bg-gray-200 ">
   <figure>
     <img
       src={card.image} className='max-h-[180px] max-w-[280px] m-2 rounded-4xl '
