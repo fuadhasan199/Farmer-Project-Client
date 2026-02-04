@@ -2,6 +2,7 @@ import React, {useContext, useState, } from 'react';
 import { CropContext } from './CropProvider';
 import { AuthContext } from './AuthContext';
 import Modal from './Modal';
+import Swal from 'sweetalert2';
 
 
 const My_post = () => { 
@@ -15,21 +16,38 @@ const My_post = () => {
 
     const userCrops=myCrops.filter(crop=>crop.userEmail ===user.email) 
 
-    const handleDelete = async (cropId) => {
-        try {
-            const res = await fetch(`https://farmers-api-omega.vercel.app/farmers/${cropId}`, {
-                method: 'DELETE',
-            });
-            const data = await res.json();
+const handleDelete = (cropId) => {
+        
+        Swal.fire({
+            title: "আপনি কি নিশ্চিত?",
+               icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "হ্যাঁ, ডিলিট করুন!",
+          cancelButtonText: "না, থাক"
+         
+            
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const res = await fetch(`https://farmers-api-omega.vercel.app/farmers/${cropId}`, {
+                        method: 'DELETE',
+                    });
+                    const data = await res.json();
 
-            if (data.deletedCount > 0) {
-                alert("Crop deleted successfully!");
-              
-                setMyCrops(myCrops.filter(crop => crop._id !== cropId)); 
-            } 
-        } catch (err) {
-            console.error(err);
-        }
+                    if (data.deletedCount > 0) {
+                        
+                        Swal.fire(
+                            "ডিলিট হয়েছে!",
+                            
+                            "success"
+                        );
+                        setMyCrops(myCrops.filter(crop => crop._id !== cropId));
+                    }
+                } catch (error) {
+                    Swal.fire("Error!", "কিছু একটা সমস্যা হয়েছে।", "error");
+                }
+            }
+        });
     };
 
     return (
@@ -41,12 +59,12 @@ const My_post = () => {
                 </p>
             ) : (
                 userCrops.map(crop => (
-                    <div key={crop._id} className="shadow-lg rounded-lg p-4 bg-white">
-                        <img src={crop.image} alt="please try again" className="rounded-lg" />
+                    <div key={crop._id} className=" card shadow-lg rounded-lg p-4 bg-white">
+                        <img src={crop.image} alt="please try again" className="rounded-lg w-98 h-65" />
                         <h3 className="text-lg font-bold mt-2">{crop.name}</h3>
                         <p className="text-sm text-gray-600">{crop.location}</p>
                         <p className="font-semibold text-green-600 mt-1">
-                            Price:{crop.pricePerUnit}  unit:{crop.unit} 
+                            Price:{crop.pricePerUnit} unit:{crop.unit} 
                         </p> 
 
                         <div className=" flex justify-between">
@@ -56,7 +74,7 @@ const My_post = () => {
                                     setSelectedCrop(crop);
                                     document.getElementById('my_modal_2').showModal();
                                 }}
-                            >   Update   </button>
+                            >  Update  </button>
                             
                             <dialog id="my_modal_2" className="modal">
                                 <div className="modal-box"> 

@@ -10,8 +10,6 @@ const ADD_Crops = () => {
   const handleSubmit=(e)=>{ 
 
    
-  
-
 
          e.preventDefault()
       
@@ -59,11 +57,6 @@ const ADD_Crops = () => {
      }
 
        
-  
-
-
-
-
 
 
     return ( 

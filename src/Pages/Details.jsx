@@ -1,15 +1,21 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const Details = () => { 
 
- const crop=useLoaderData()
+ const crop=useLoaderData() 
+ const navigate=useNavigate()
  
 console.log(crop)
     return (
-        <div className='bg-gray-100 p-5'> 
+        <div className='bg-gray-100 p-5'>  
 
-          <div className="card shadow-2xl p-10 items-center bg-gray-200">
+         <button className='btn btn-success px-5 font-bold rounded-md flex items-center ' onClick={()=>navigate(-1)} > Back <IoMdArrowRoundBack className='items-center mt-1 ' /> </button>
+          
+          <div className="card shadow-2xl p-10 items-center bg-gray-200"> 
+
+            
            <img src={crop.image} alt="" className='max-w-100 rounded-xl shadow-2xl ' />
 
            <p className='font-bold text-4xl mt-5 text-white bg-pink-500 p-2 rounded-xl'>{crop.type}</p> 

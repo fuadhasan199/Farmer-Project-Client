@@ -22,9 +22,9 @@ useEffect(()=>{
 
 
     return (
-       <CropContext.Provider value={{myCrops,setMyCrops}}>
+       <CropContext value={{myCrops,setMyCrops}}>
         {children}
-       </CropContext.Provider>
+       </CropContext>
     );
 };
 

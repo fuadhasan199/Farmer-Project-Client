@@ -68,8 +68,8 @@ const Navber = () => {
             <div className="navbar-end ">
              
                 {user 
-                    ?<a className='btn bg-blue-500 text-white rounded-md' onClick={handleSignOut}>SignOut</a>
-                    :<Link to={'/Sign-In'} className='btn bg-blue-500 text-white rounded-md '>Sign-In</Link>
+                    ?<a className='btn btn-success text-white rounded-md' onClick={handleSignOut}>SignOut</a>
+                    :<Link to={'/Sign-In'} className='btn btn-success text-white rounded-md '>Sign-In</Link>
                 }
             </div> 
  

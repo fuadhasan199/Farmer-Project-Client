@@ -2,11 +2,14 @@ import React, {  useContext } from 'react';
 import { AuthContext } from '../Pages/AuthContext';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { FcGoogle } from "react-icons/fc";
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const SignUp = () => {  
         const provider=new GoogleAuthProvider() 
 
-    const auth=getAuth() 
+    const auth=getAuth()  
+    const navigate=useNavigate()
   
 const {CreateUser}=useContext(AuthContext) 
       const handleSignIn=(e)=>{
@@ -17,30 +20,48 @@ const {CreateUser}=useContext(AuthContext)
 
      const password=e.target.password.value 
 
+      try{ 
+          const result=CreateUser(email,password) 
+          console.log(result.user)
+                        e.target.reset()  
+                        
+                         
+                          Swal.fire({
+                       title: "Register Successfull",
+                              icon: "success",
+                               draggable: true
+           });  
+           navigate('/')
+      }  
+      catch(error){
+                       Swal.fire({
+                      title: "error", 
+                      text:error.message,
+                       icon: "error",
+                        draggable: true
+          });
+      }
 
-
-     e.target.reset() 
-
-
-     CreateUser(email,password) 
-     .then(res=>console.log(res.user))
-     .catch(error=>console.log(error)) 
-
-    
-
-
-
+ 
+  
       } 
 
       const handleGoogle=()=>{
 
      signInWithPopup(auth, provider) 
-     .then(res=>console.log(res.user))
+     .then(res=>{
+      console.log(res.user) 
+          Swal.fire({
+             title: "Register Successfull",
+              icon: "success",
+               draggable: true
+           });  
+           navigate('/')
+       
+     })
      .catch(error=>console.log(error))
 
       }
-
-
 
     return (
       <div className="hero bg-base-200 min-h-screen">
