@@ -66,7 +66,7 @@ const handleInterest=()=>{
 
          </div> 
          <p className='mt-2 font-bold bg-green-200 text-green-800 p-2 rounded-md'>Location: {crop.location}</p> 
-         <p className='font-semibold mt-5 text-xl '> Seller: {crop.owner.ownerName}</p> 
+         
 
        
               
