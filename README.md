@@ -19,7 +19,7 @@ KrishiLink is a modern web application that connects people in the agricultural 
 
 ## Live Demo
 
-Live Link : https://krisikink.pages.dev/  
+Live Link :krisok-bazar.pages.dev
 
 ## Notes
 
