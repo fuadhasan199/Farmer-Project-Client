@@ -9,7 +9,7 @@ const My_post = () => {
    
     const { myCrops, setMyCrops } = useContext(CropContext); 
   
-
+    
     const {user}=useContext(AuthContext) 
 
     const [selectedCrop,setSelectedCrop]=useState(null)
@@ -44,7 +44,7 @@ const handleDelete = (cropId) => {
                         setMyCrops(myCrops.filter(crop => crop._id !== cropId));
                     }
                 } catch (error) {
-                    Swal.fire("Error!", "কিছু একটা সমস্যা হয়েছে।", "error");
+                    Swal.fire("Error!", "কিছু একটা সমস্যা হয়েছে।", error.message);
                 }
             }
         });

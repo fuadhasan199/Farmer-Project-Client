@@ -5,7 +5,8 @@ import { auth } from '../Firebase.config';
 
 const AuthProvider = ({children}) => {
  
-const [user,setUser]=useState(null) 
+const [user,setUser]=useState(null)  
+const [loading,setloading]=useState(true)
 
 
 const CreateUser=(email,password)=>{
@@ -21,14 +22,19 @@ const SignInUser=(email,password)=>{
 }  
 
 const SignOutUser=()=>{
-
-return signOut(auth)
+ setloading(true)
+return signOut(auth) 
+.then(()=>{
+   localStorage.removeItem('token')
+   setloading(false)
+})
 
 } 
 
 useEffect(()=>{
   const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
-    setUser(currentUser)
+    setUser(currentUser)   
+    setloading(false)     
   }) 
 
    return ()=>{
@@ -40,7 +46,8 @@ useEffect(()=>{
 
 const AuthInfo={
 
-user, 
+user,  
+loading,
 CreateUser, 
  SignInUser, 
  SignOutUser

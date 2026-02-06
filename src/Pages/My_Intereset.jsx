@@ -1,18 +1,26 @@
 import React, { useContext, useEffect, useState }  from 'react';
 import { AuthContext } from './AuthContext';
 import Swal from 'sweetalert2';
+import Loading from './Loading';
  
 const My_Intereset = () => { 
  
     const {user}=useContext(AuthContext)
     const [interests,setMyInterest]=useState([])
 
-
-   useEffect(()=>{ 
+     const [loader,setLoader]=useState(true) 
+     const token=localStorage.getItem('token')
+   useEffect(()=>{  
+    setLoader(true)
     if(user){
-       fetch(`https://farmers-api-omega.vercel.app/my-interest?email=${user?.email}`)
+       fetch(`https://farmers-api-omega.vercel.app/my-interest?email=${user?.email}`,{
+          headers:{
+             authorization: `Bearer ${token}`
+          }
+       })
        .then(res=>res.json())
-       .then(data=>setMyInterest(data))
+       .then(data=>setMyInterest(data)) 
+       setLoader(false)
     }
 
    },[user]) 
@@ -33,17 +41,18 @@ const My_Intereset = () => {
                .then(res=>res.json())
                .then(data=>{
                  if(data.deletedCount >0){
-                    Swal.fire("সফল ভাবে ডিলিট হয়েছে","success")
+                    Swal.fire("সফল ভাবে ডিলিট হয়েছে","success") 
+                    const remain=interests.filter(interest=>interest._id !==id)
+                     setMyInterest(remain)
                  }
                })
             }
         })
    }
 
-
-
-
-
+    if(loader){
+        return <Loading></Loading>
+    }
 
     return ( 
 

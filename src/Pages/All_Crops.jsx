@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
+import Loading from './Loading';
 
 const All_Crops = () => { 
     
     const initialCards = useLoaderData(); 
      
-    const [search, setSerach] = useState('');
+    const [search, setSerach] = useState(''); 
+    const [loader,setLoader]=useState(true)
    
     const [crops, setCrops] = useState(initialCards); 
 
@@ -14,7 +16,12 @@ const All_Crops = () => {
         fetch(`https://farmers-api-omega.vercel.app/farmers?search=${search}`)
             .then(res => res.json())
             .then(data => setCrops(data));
-    }, [search]);
+            setLoader(false)
+    }, [search]); 
+
+    if(loader){
+         return <Loading></Loading>
+    }
 
     return (
         <div className='container mx-auto bg-gray-100 p-4 rounded-xl min-h-screen'> 

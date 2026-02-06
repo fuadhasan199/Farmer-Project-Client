@@ -22,6 +22,8 @@ const { SignInUser}=useContext(AuthContext)
         try{
             const result=await  SignInUser(email,password) 
              console.log(result.user)  
+             const token = await result.user.getIdToken();
+        localStorage.setItem('token', token);
              e.target.reset()  
              
               
@@ -50,8 +52,12 @@ const { SignInUser}=useContext(AuthContext)
     const handleGoogle=()=>{
   
          signInWithPopup(auth,provider) 
-         .then(res=>{  
-          console.log(res.user)
+         
+         .then(async (res)=>{  
+          console.log(res.user)  
+          const token = await res.user.getIdToken();
+            localStorage.setItem('token', token);
+          
                          Swal.fire({
             title: "Log in Successfull",
                    icon: "success",
